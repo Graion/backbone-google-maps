@@ -15,7 +15,7 @@ var App = (function($, Backbone, global) {
 
     var listLocationView = new global.ListLocationsView({
       collection: locations,
-      el: $('ul.locations')[0]
+      el: $('tbody.locations')[0]
     });
 
     listLocationView.render();

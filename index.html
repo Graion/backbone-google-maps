@@ -3,15 +3,27 @@
   <head>
     <meta charset="utf-8">
     <title>Backbone Google Maps</title>
-    <style src="node_modules/bootstrap/dist/css/bootstrap.css"></style>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"></link>
+  </head>
+  <body>
+    <div id="app" class="container">
+      <div class="page-header">
+        <h1>Locations</h1>
+      </div>
+      <table class="table">
+        <thead>
+          <th>Title</th>
+          <th>Latitude</th>
+          <th>Longitude</th>
+          <th>Actions</th>
+        </thead>
+        <tbody class="locations"></tbody>
+      </table>
+    </div>
+
     <script src="node_modules/jquery/dist/jquery.js"></script>
     <script src="node_modules/underscore/underscore.js"></script>
     <script src="node_modules/backbone/backbone.js"></script>
     <script src="dist/main.js"></script>
-  </head>
-  <body>
-    <div id="app">
-      <ul class="locations"></ul>
-    </div>
   </body>
 </html>

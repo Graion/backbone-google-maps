@@ -1,6 +1,6 @@
 # backbone-google-maps
 
-* Create an ABM of map locations and render them on a google map.
+* Create an CRUD of map locations and render them on a google map.
 * It should contain a view to list, create and remove locations.
 * It should contain a view that shows the map with the locations.
 * Use Collections, Models, etc.

@@ -12,14 +12,14 @@ var NewLocationFormView = Backbone.View.extend({
   },
 
   newLocation: function() {
-    var loc = {
+    var location = {
       title: this.$title.val().trim(),
       latitude: this.$latitude.val().trim(),
       longitude: this.$longitude.val().trim()
     };
 
-    if (loc.title && loc.latitude && loc.longitude) {
-      return loc;
+    if (location.title && location.latitude && location.longitude) {
+      return location;
     }
   },
 

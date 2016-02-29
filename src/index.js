@@ -10,6 +10,11 @@ var App = (function($, Backbone, w) {
         title: 'Valtech',
         latitude: 0.1,
         longitude: 0.1
+      },
+      {
+        title: 'Test',
+        latitude: 0.1,
+        longitude: 0.1
       }
     ]);
 
@@ -20,8 +25,6 @@ var App = (function($, Backbone, w) {
     var newLocationFormView = new NewLocationFormView({
       collection: locations
     });
-
-    listLocationView.render();
   };
 
   return {

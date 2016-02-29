@@ -3,14 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title>Backbone Google Maps</title>
+    <style src="node_modules/bootstrap/dist/css/bootstrap.css"></style>
     <script src="node_modules/jquery/dist/jquery.js"></script>
     <script src="node_modules/underscore/underscore.js"></script>
     <script src="node_modules/backbone/backbone.js"></script>
     <script src="src/models/Location.js"></script>
+    <script src="src/collections/Locations.js"></script>
     <script src="src/views/Location.js"></script>
+    <script src="src/views/ListLocations.js"></script>
     <script src="index.js"></script>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <ul class="locations"></ul>
+    </div>
   </body>
 </html>

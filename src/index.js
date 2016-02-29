@@ -1,6 +1,6 @@
-var App = (function($, Backbone, global) {
+var App = (function($, Backbone, w) {
   var init = function() {
-    var locations = new global.Locations([
+    var locations = new Locations([
       {
         title: 'Graion',
         latitude: 0.1,
@@ -13,9 +13,12 @@ var App = (function($, Backbone, global) {
       }
     ]);
 
-    var listLocationView = new global.ListLocationsView({
+    var listLocationView = new ListLocationsView({
       collection: locations,
       el: $('tbody.locations')[0]
+    });
+    var newLocationFormView = new NewLocationFormView({
+      collection: locations
     });
 
     listLocationView.render();

@@ -3,18 +3,18 @@ var App = (function($, Backbone, w) {
     var locations = new Locations([
       {
         title: 'Graion',
-        latitude: 0.1,
-        longitude: 0.1
+        latitude: -34.5781251,
+        longitude: -58.4339857
       },
       {
         title: 'Valtech',
-        latitude: 0.1,
-        longitude: 0.1
+        latitude: -34.5787612,
+        longitude: -58.4332132
       },
       {
-        title: 'Test',
-        latitude: 0.1,
-        longitude: 0.1
+        title: 'The Temple Bar',
+        latitude: -34.5852982,
+        longitude: -58.433674
       }
     ]);
 
@@ -23,6 +23,9 @@ var App = (function($, Backbone, w) {
       el: $('tbody.locations')[0]
     });
     var newLocationFormView = new NewLocationFormView({
+      collection: locations
+    });
+    var locationsMapView = new LocationsMapView({
       collection: locations
     });
   };

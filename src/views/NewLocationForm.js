@@ -1,8 +1,8 @@
 var NewLocationFormView = Backbone.View.extend({
-  el: '#new-location',
+  el: $('#new-location'),
 
   events: {
-    "submit": "submit",
+    "submit": "submit"
   },
 
   initialize: function () {

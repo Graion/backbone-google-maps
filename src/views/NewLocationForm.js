@@ -26,5 +26,6 @@ var NewLocationFormView = Backbone.View.extend({
   submit: function (e) {
     e.preventDefault();
     this.collection.add(this.newLocation());
+    this.el.reset();
   }
 });

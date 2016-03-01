@@ -24,13 +24,13 @@ var LocationsMapView = Backbone.View.extend({
     },
 
     removeMarker: function (location) {
-        var marker = _.findWhere(this.markers, {
+        var partitionedMarkers = _.partition(this.markers, {
             title: location.get('title')
         });
-        marker.setMap(null);
-        this.markers = _.reject(this.markers, {
-            title: location.get('title')
-        });
+        var markerToBeRemoved = _.first(_.first(partitionedMarkers));
+        markerToBeRemoved.setMap(null);
+
+        this.markers = _.last(partitionedMarkers);
     },
 
     markLocations: function() {

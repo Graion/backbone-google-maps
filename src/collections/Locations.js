@@ -3,16 +3,16 @@ var Locations = Backbone.Collection.extend({
 
   /**
    * Adds a location only once
-   * @param loc
+   * @param location
    * @returns {boolean}
-     */
-  add: function(loc) {
-    var dup = this.any(function(_loc) {
-      return (_loc.get('latitude') === loc.latitude && _loc.get('latitude') === loc.latitude) || _loc.get('title') === loc.title;
+   */
+  add: function(location) {
+    var isDuplicated = this.any(function(_loc) {
+      return (_loc.get('latitude') === location.latitude && _loc.get('latitude') === location.latitude) || _loc.get('title') === location.title;
     });
 
-    if (!dup) {
-      return Backbone.Collection.prototype.add.call(this, loc);
+    if (!isDuplicated) {
+      return Backbone.Collection.prototype.add.call(this, location);
     }
 
     return false;

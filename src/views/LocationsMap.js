@@ -4,6 +4,7 @@ var LocationsMapView = Backbone.View.extend({
     initialize: function() {
         this.markers = [];
         this.listenTo(this.collection, 'add', this.addMarker);
+        this.listenTo(this.collection, 'remove', this.removeMarker);
 
         this.map = new window.google.maps.Map(this.el, {
             center: {lat: -34.5781251, lng: -58.4339857},
@@ -20,6 +21,16 @@ var LocationsMapView = Backbone.View.extend({
             title: location.get('title')
         });
         return this.markers.push(newMarker);
+    },
+
+    removeMarker: function (location) {
+        var marker = _.findWhere(this.markers, {
+            title: location.get('title')
+        });
+        marker.setMap(null);
+        this.markers = _.reject(this.markers, {
+            title: location.get('title')
+        });
     },
 
     markLocations: function() {

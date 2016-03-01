@@ -11,6 +11,10 @@ var NewLocationFormView = Backbone.View.extend({
     this.$longitude = this.$('[name=longitude]');
   },
 
+  /**
+   * Creates a new location object
+   * @returns {{title: (string), latitude: (string), longitude: (string)}}
+   */
   newLocation: function() {
     var location = {
       title: this.$title.val().trim(),

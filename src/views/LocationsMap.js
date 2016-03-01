@@ -14,15 +14,23 @@ var LocationsMapView = Backbone.View.extend({
         this.markLocations();
     },
 
+    /**
+     * Adds a new marker to the map
+     * @param {Location} location
+     */
     addMarker: function (location) {
         var newMarker = new google.maps.Marker({
             position: new google.maps.LatLng(location.get('latitude'), location.get('longitude')),
             map: this.map,
             title: location.get('title')
         });
-        return this.markers.push(newMarker);
+        this.markers.push(newMarker);
     },
 
+    /**
+     * Removes a location from the map
+     * @param {Location} location
+     */
     removeMarker: function (location) {
         var partitionedMarkers = _.partition(this.markers, {
             title: location.get('title')
@@ -33,6 +41,9 @@ var LocationsMapView = Backbone.View.extend({
         this.markers = _.last(partitionedMarkers);
     },
 
+    /**
+     * Marks all locations on the map
+     */
     markLocations: function() {
         this.collection.each(function(location) {
             this.addMarker(location);

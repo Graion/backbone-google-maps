@@ -3,6 +3,7 @@ var LocationsMapView = Backbone.View.extend({
 
     initialize: function() {
         this.markers = [];
+        this.listenTo(this.collection, 'add', this.addMarker);
 
         this.map = new window.google.maps.Map(this.el, {
             center: {lat: -34.5781251, lng: -58.4339857},
@@ -12,14 +13,18 @@ var LocationsMapView = Backbone.View.extend({
         this.markLocations();
     },
 
+    addMarker: function (location) {
+        var newMarker = new google.maps.Marker({
+            position: new google.maps.LatLng(location.get('latitude'), location.get('longitude')),
+            map: this.map,
+            title: location.get('title')
+        });
+        return this.markers.push(newMarker);
+    },
+
     markLocations: function() {
         this.collection.each(function(location) {
-            var marker = new google.maps.Marker({
-                position: {lat: location.get('latitude'), lng: location.get('longitude')},
-                map: this.map,
-                title: 'Hello World!'
-            });
-            this.markers.push(marker);
+            this.addMarker(location);
         }, this);
     }
 });

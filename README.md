@@ -18,3 +18,4 @@
 * Persist Locations in localStorage
 * Modify structure in favor of components
 * Autocomplete de google places
+* Load Bootstrap via Webpack

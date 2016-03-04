@@ -1,3 +1,5 @@
+import { Location } from '../models/Location';
+
 var Locations = Backbone.Collection.extend({
   model: Location,
 
@@ -15,3 +17,5 @@ var Locations = Backbone.Collection.extend({
     }
   }
 });
+
+export { Locations };

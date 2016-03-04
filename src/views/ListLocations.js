@@ -1,3 +1,5 @@
+import { LocationView } from './Location';
+
 var ListLocationsView = Backbone.View.extend({
   initialize: function() {
     this.listenTo(this.collection, 'add', this.render);
@@ -19,3 +21,5 @@ var ListLocationsView = Backbone.View.extend({
     return this;
   }
 });
+
+export { ListLocationsView };

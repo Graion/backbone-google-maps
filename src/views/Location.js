@@ -22,3 +22,5 @@ var LocationView = Backbone.View.extend({
     return this;
   }
 });
+
+export { LocationView };

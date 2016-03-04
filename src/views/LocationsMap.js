@@ -50,3 +50,5 @@ var LocationsMapView = Backbone.View.extend({
         }, this);
     }
 });
+
+export { LocationsMapView };

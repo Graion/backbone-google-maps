@@ -33,3 +33,5 @@ var NewLocationFormView = Backbone.View.extend({
     this.el.reset();
   }
 });
+
+export { NewLocationFormView };

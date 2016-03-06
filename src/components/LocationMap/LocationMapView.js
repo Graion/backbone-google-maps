@@ -1,4 +1,4 @@
-var LocationsMapView = Backbone.View.extend({
+var LocationMapView = Backbone.View.extend({
     el: $('#map'),
 
     initialize: function() {
@@ -51,4 +51,4 @@ var LocationsMapView = Backbone.View.extend({
     }
 });
 
-export { LocationsMapView };
+export { LocationMapView };

@@ -1,6 +1,6 @@
-import { Location } from '../models/Location';
+import { Location } from '../Location/Location';
 
-var Locations = Backbone.Collection.extend({
+var LocationList = Backbone.Collection.extend({
   model: Location,
 
   /**
@@ -18,4 +18,4 @@ var Locations = Backbone.Collection.extend({
   }
 });
 
-export { Locations };
+export { LocationList };

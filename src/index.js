@@ -1,13 +1,13 @@
-import { ListLocationsView } from './views/ListLocations';
-import { LocationFormView } from './views/LocationForm';
-import { LocationsMapView } from './views/LocationsMap';
-import { Locations } from './collections/Locations';
+import { LocationListView } from './components/LocationList/LocationListView';
+import { LocationFormView } from './components/LocationForm/LocationFormView';
+import { LocationMapView } from './components/LocationMap/LocationMapView';
+import { LocationList } from './components/LocationList/LocationList';
 
 var AppView = new (Backbone.View.extend({
   el: $('#app'),
 
   initialize: function(){
-    this.locations = new Locations([
+    this.locations = new LocationList([
       {
         title: 'Graion',
         latitude: -34.5781251,
@@ -25,13 +25,13 @@ var AppView = new (Backbone.View.extend({
       }
     ]);
 
-    this.listLocationView = new ListLocationsView({
+    this.locationListView = new LocationListView({
       collection: this.locations
     });
     this.locationFormView = new LocationFormView({
       collection: this.locations
     });
-    this.locationsMapView = new LocationsMapView({
+    this.locationsMapView = new LocationMapView({
       collection: this.locations
     });
   }

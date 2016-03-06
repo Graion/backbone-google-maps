@@ -1,6 +1,6 @@
-import { LocationView } from './Location';
+import { LocationView } from '../Location/LocationView';
 
-var ListLocationsView = Backbone.View.extend({
+var LocationListView = Backbone.View.extend({
   el: $('#locations'),
 
   initialize: function() {
@@ -24,4 +24,4 @@ var ListLocationsView = Backbone.View.extend({
   }
 });
 
-export { ListLocationsView };
+export { LocationListView };

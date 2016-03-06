@@ -1,5 +1,5 @@
-var NewLocationFormView = Backbone.View.extend({
-  el: $('#new-location'),
+var LocationFormView = Backbone.View.extend({
+  el: $('#location-form'),
 
   events: {
     "submit": "submit"
@@ -34,4 +34,4 @@ var NewLocationFormView = Backbone.View.extend({
   }
 });
 
-export { NewLocationFormView };
+export { LocationFormView };

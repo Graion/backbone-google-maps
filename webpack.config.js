@@ -19,6 +19,10 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
+  devServer: {
+    contentBase: './dist',
+    hot: true
+  },
   plugins : [
     new webpack.ProvidePlugin({
       $ : "jquery",

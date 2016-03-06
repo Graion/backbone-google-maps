@@ -1,9 +1,13 @@
+import template from './Location.html';
+
 var LocationView = Backbone.View.extend({
   tagName: 'tr',
 
   events: {
     'click .remove': 'remove'
   },
+
+  template: template,
 
   initialize: function() {
     this.render();
@@ -14,11 +18,7 @@ var LocationView = Backbone.View.extend({
   },
 
   render: function() {
-    var html = '<td>' + this.model.get('title') + '</td>' +
-      '<td>' + this.model.get('latitude') + '</td>' +
-      '<td>' + this.model.get('longitude') + '</td>' +
-      '<td><button type="button" class="remove btn btn-danger btn-xs">&times; Remove</button></td>';
-    this.$el.html(html);
+    this.$el.html(this.template(this.model.attributes));
     return this;
   }
 });

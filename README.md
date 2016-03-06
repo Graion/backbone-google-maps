@@ -7,15 +7,12 @@
 
 ## Setup
 * `npm install`
-* `npm install -g gulp`
+* `npm install -g webpack webpack-dev-server`
 
 ## Development
-* `gulp` to generate the `main.js`
-* `gulp watch` to watch `src` directory
-* Open `index.html` on a browser
+* `webpack-dev-server` and `open localhost:8080`
 
 ## TODOs
 * Persist Locations in localStorage
-* Modify structure in favor of components
-* Autocomplete de google places
+* Autocomplete of google places
 * Load Bootstrap via Webpack

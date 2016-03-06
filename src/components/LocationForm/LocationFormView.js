@@ -1,14 +1,20 @@
+import template from './LocationForm.html';
+
 var LocationFormView = Backbone.View.extend({
   el: $('#location-form'),
 
   events: {
-    "submit": "submit"
+    "submit form": "submit"
   },
 
+  template: template,
+
   initialize: function () {
-    this.$title = this.$('[name=title]');
-    this.$latitude = this.$('[name=latitude]');
-    this.$longitude = this.$('[name=longitude]');
+    this.render();
+    this.$form = this.$el.find('form')[0];
+    this.$title = this.$el.find('[name=title]');
+    this.$latitude = this.$el.find('[name=latitude]');
+    this.$longitude = this.$el.find('[name=longitude]');
   },
 
   /**
@@ -30,7 +36,11 @@ var LocationFormView = Backbone.View.extend({
   submit: function (e) {
     e.preventDefault();
     this.collection.add(this.newLocation());
-    this.el.reset();
+    this.$form.reset();
+  },
+
+  render: function(){
+    this.$el.html(this.template());
   }
 });
 

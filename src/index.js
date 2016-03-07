@@ -1,7 +1,6 @@
 require("./style.css");
 
 import { LocationListView } from './components/LocationList/LocationListView';
-import { PlacesAutocompleteView } from './components/PlacesAutocomplete/PlacesAutocompleteView';
 import { LocationFormView } from './components/LocationForm/LocationFormView';
 import { LocationMapView } from './components/LocationMap/LocationMapView';
 import { LocationList } from './components/LocationList/LocationList';
@@ -15,8 +14,7 @@ var AppView = new (Backbone.View.extend({
       collection: this.locations
     });
     this.locationFormView = new LocationFormView({
-      collection: this.locations,
-      placesAutocomplete: PlacesAutocompleteView
+      collection: this.locations
     });
     this.locationsMapView = new LocationMapView({
       collection: this.locations

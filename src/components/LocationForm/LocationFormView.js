@@ -1,6 +1,7 @@
 import template from './LocationForm.html';
 
 import { Location } from '../Location/Location';
+import { PlacesAutocompleteView } from '../PlacesAutocomplete/PlacesAutocompleteView';
 
 var LocationFormView = Backbone.View.extend({
   el: $('#location-form'),
@@ -18,11 +19,10 @@ var LocationFormView = Backbone.View.extend({
     this.$latitude = this.$el.find('[name=latitude]');
     this.$longitude = this.$el.find('[name=longitude]');
 
-    if (options.placesAutocomplete) {
-      this.autocomplete = new options.placesAutocomplete();
-      this.listenTo(this.autocomplete, 'placeSelected', this.autocompleteFromPlace);
-      this.$el.find('#places-autocomplete').html(this.autocomplete.el);
-    }
+    this.autocomplete = new PlacesAutocompleteView({
+      el: this.$title
+    });
+    this.listenTo(this.autocomplete, 'placeSelected', this.autocompleteFromPlace);
   },
 
   /**
@@ -52,7 +52,7 @@ var LocationFormView = Backbone.View.extend({
   },
 
   autocompleteFromPlace: function(place) {
-    this.$title.val(place.name).focus();
+    this.$title.focus();
     this.$latitude.val(place.geometry.location.lat());
     this.$longitude.val(place.geometry.location.lng());
   }

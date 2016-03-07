@@ -11,7 +11,3 @@
 
 ## Development
 * `webpack-dev-server` and `open localhost:8080`
-
-## TODOs
-* Persist Locations in localStorage
-* Autocomplete of google places

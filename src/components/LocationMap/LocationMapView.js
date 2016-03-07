@@ -3,8 +3,8 @@ var LocationMapView = Backbone.View.extend({
 
     initialize: function(){
         this.markers = [];
-        this.listenTo(this.collection, 'add', this.addMarkerAndCenter);
-        this.listenTo(this.collection, 'remove', this.removeMarkerAndCenter);
+        this.listenTo(this.collection, 'add', _.compose(this.centerMap, this.addMarker));
+        this.listenTo(this.collection, 'remove', _.compose(this.centerMap, this.removeMarker));
         this.map = new window.google.maps.Map(this.el);
         this.markLocations();
     },
@@ -56,16 +56,6 @@ var LocationMapView = Backbone.View.extend({
             latLngBounds.extend(markerLatLng);
         });
         this.map.fitBounds(latLngBounds);
-    },
-
-    addMarkerAndCenter: function(location){
-        this.addMarker(location);
-        this.centerMap();
-    },
-
-    removeMarkerAndCenter: function(location){
-        this.removeMarker(location);
-        this.centerMap();
     }
 });
 

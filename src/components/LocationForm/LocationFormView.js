@@ -52,7 +52,7 @@ var LocationFormView = Backbone.View.extend({
   },
 
   autocompleteFromPlace: function(place) {
-    this.$title.focus();
+    this.$title.val(place.name).focus();
     this.$latitude.val(place.geometry.location.lat());
     this.$longitude.val(place.geometry.location.lng());
   }

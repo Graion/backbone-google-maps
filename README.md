@@ -15,4 +15,3 @@
 ## TODOs
 * Persist Locations in localStorage
 * Autocomplete of google places
-* Load Bootstrap via Webpack

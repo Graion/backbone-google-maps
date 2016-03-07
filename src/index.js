@@ -1,3 +1,5 @@
+require("./style.css");
+
 import { LocationListView } from './components/LocationList/LocationListView';
 import { LocationFormView } from './components/LocationForm/LocationFormView';
 import { LocationMapView } from './components/LocationMap/LocationMapView';

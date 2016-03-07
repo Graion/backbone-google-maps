@@ -1,16 +1,11 @@
 var LocationMapView = Backbone.View.extend({
     el: $('#map'),
 
-    initialize: function() {
+    initialize: function(){
         this.markers = [];
-        this.listenTo(this.collection, 'add', this.addMarker);
-        this.listenTo(this.collection, 'remove', this.removeMarker);
-
-        this.map = new window.google.maps.Map(this.el, {
-            center: {lat: -34.5781251, lng: -58.4339857},
-            zoom: 15
-        });
-
+        this.listenTo(this.collection, 'add', this.addMarkerAndCenter);
+        this.listenTo(this.collection, 'remove', this.removeMarkerAndCenter);
+        this.map = new window.google.maps.Map(this.el);
         this.markLocations();
     },
 
@@ -18,7 +13,7 @@ var LocationMapView = Backbone.View.extend({
      * Adds a new marker to the map
      * @param {Location} location
      */
-    addMarker: function (location) {
+    addMarker: function(location){
         var newMarker = new google.maps.Marker({
             position: new google.maps.LatLng(location.get('latitude'), location.get('longitude')),
             map: this.map,
@@ -44,10 +39,33 @@ var LocationMapView = Backbone.View.extend({
     /**
      * Marks all locations on the map
      */
-    markLocations: function() {
-        this.collection.each(function(location) {
+    markLocations: function(){
+        this.collection.each(function(location){
             this.addMarker(location);
         }, this);
+        this.centerMap();
+    },
+
+    /**
+    * Centers map to fit all locations
+    */
+    centerMap: function(){
+        var markersLatLng = _.map(this.markers, 'position');
+        var latLngBounds = new google.maps.LatLngBounds();
+        _.forEach(markersLatLng, function(markerLatLng){
+            latLngBounds.extend(markerLatLng);
+        });
+        this.map.fitBounds(latLngBounds);
+    },
+
+    addMarkerAndCenter: function(location){
+        this.addMarker(location);
+        this.centerMap();
+    },
+
+    removeMarkerAndCenter: function(location){
+        this.removeMarker(location);
+        this.centerMap();
     }
 });
 

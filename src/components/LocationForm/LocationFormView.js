@@ -9,12 +9,18 @@ var LocationFormView = Backbone.View.extend({
 
   template: template,
 
-  initialize: function () {
+  initialize: function (options) {
     this.render();
     this.$form = this.$el.find('form')[0];
     this.$title = this.$el.find('[name=title]');
     this.$latitude = this.$el.find('[name=latitude]');
     this.$longitude = this.$el.find('[name=longitude]');
+
+    if (options.placesAutocomplete) {
+      this.autocomplete = new options.placesAutocomplete();
+      this.listenTo(this.autocomplete, 'placeSelected', this.autocompleteFromPlace);
+      this.$el.find('#places-autocomplete').html(this.autocomplete.el);
+    }
   },
 
   /**
@@ -41,6 +47,12 @@ var LocationFormView = Backbone.View.extend({
 
   render: function(){
     this.$el.html(this.template());
+  },
+
+  autocompleteFromPlace: function(place) {
+    this.$title.val(place.name).focus();
+    this.$latitude.val(place.geometry.location.lat());
+    this.$longitude.val(place.geometry.location.lng());
   }
 });
 

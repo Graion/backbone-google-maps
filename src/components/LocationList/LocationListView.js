@@ -13,6 +13,7 @@ var LocationListView = Backbone.View.extend({
 
   remove: function(location) {
     this.collection.remove(location);
+    location.destroy();
     this.render();
   },
 

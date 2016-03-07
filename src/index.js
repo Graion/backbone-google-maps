@@ -10,24 +10,7 @@ var AppView = new (Backbone.View.extend({
   el: $('#app'),
 
   initialize: function(){
-    this.locations = new LocationList([
-      {
-        title: 'Graion',
-        latitude: -34.5781251,
-        longitude: -58.4339857
-      },
-      {
-        title: 'Valtech',
-        latitude: -34.5787612,
-        longitude: -58.4332132
-      },
-      {
-        title: 'The Temple Bar',
-        latitude: -34.5852982,
-        longitude: -58.433674
-      }
-    ]);
-
+    this.createLocations();
     this.locationListView = new LocationListView({
       collection: this.locations
     });
@@ -38,5 +21,22 @@ var AppView = new (Backbone.View.extend({
     this.locationsMapView = new LocationMapView({
       collection: this.locations
     });
+  },
+
+  createLocations: function(){
+    this.locations = new LocationList();
+    this.locations.fetch();
+    if (!this.locations.size()) {
+      this.locations.create({
+        title: 'Graion',
+        latitude: -34.5781251,
+        longitude: -58.4339857
+      });
+      this.locations.create({
+        title: 'The Temple Bar',
+        latitude: -34.5852982,
+        longitude: -58.433674
+      });
+    }
   }
 }));

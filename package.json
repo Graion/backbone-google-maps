@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "backbone": "^1.2.3",
+    "backbone.localstorage": "^1.1.16",
     "bootstrap": "^3.3.6",
     "file-loader": "^0.8.5",
     "jquery": "^2.2.1",

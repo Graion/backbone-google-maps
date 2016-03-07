@@ -1,5 +1,7 @@
 import template from './LocationForm.html';
 
+import { Location } from '../Location/Location';
+
 var LocationFormView = Backbone.View.extend({
   el: $('#location-form'),
 
@@ -35,7 +37,7 @@ var LocationFormView = Backbone.View.extend({
     };
 
     if (location.title && location.latitude && location.longitude) {
-      return location;
+      return new Location(location);
     }
   },
 

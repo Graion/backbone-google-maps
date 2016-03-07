@@ -1,7 +1,11 @@
+require('backbone.localstorage');
+
 import { Location } from '../Location/Location';
 
 var LocationList = Backbone.Collection.extend({
   model: Location,
+
+  localStorage: new Backbone.LocalStorage('backbone-google-maps'),
 
   /**
    * Adds a location only once
@@ -14,6 +18,7 @@ var LocationList = Backbone.Collection.extend({
 
     if (!isDuplicated) {
       Backbone.Collection.prototype.add.call(this, location);
+      location.save();
     }
   }
 });

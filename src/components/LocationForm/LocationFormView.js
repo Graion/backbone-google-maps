@@ -12,7 +12,7 @@ var LocationFormView = Backbone.View.extend({
 
   template: template,
 
-  initialize: function (options) {
+  initialize: function () {
     this.render();
     this.$form = this.$el.find('form')[0];
     this.$title = this.$el.find('[name=title]');

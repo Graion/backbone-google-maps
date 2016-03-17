@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: [
@@ -13,7 +14,7 @@ module.exports = {
     loaders: [
       { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel' },
       { test: /\.html$/, loader: 'mustache' },
-      { test: /\.css$/, loader: 'style-loader!css-loader' },
+      { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader') },
       { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' }
     ]
   },
@@ -29,6 +30,7 @@ module.exports = {
       $ : 'jquery',
       Backbone : 'backbone',
       _ : 'underscore'
-    })
+    }),
+    new ExtractTextPlugin('bundle.css')
   ]
 };

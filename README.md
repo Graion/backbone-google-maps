@@ -10,4 +10,12 @@
 * `npm install -g webpack webpack-dev-server`
 
 ## Development
-* `webpack-dev-server` and `open localhost:8080`
+* `webpack-dev-server` and `open localhost:8080\webpack-dev-server\`
+
+## Production
+* `git checkout gh-pages`
+* `git rebase master`
+* `webpack -p`
+* `git add --all`
+* `git commit --amend`
+* `git push -f`
